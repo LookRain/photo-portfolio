@@ -16,9 +16,11 @@
  */
 
  Vue.component('example', require('./components/Example.vue'));
+ import MyNav from './components/MyNav.vue'
 
  const app = new Vue({
  	el: '#app',
+ 	components: { MyNav },
  	mounted() {
  		console.log('vue mounted')
  	}

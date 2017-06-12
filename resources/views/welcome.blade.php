@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>LookRain Photography</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/css/app.css">
 
     <!-- Styles -->
 
@@ -16,8 +17,10 @@
 <body>
 
     <div id="app">
-     <example></example>
- </div>
- <script src="/js/app.js"></script>
+       <example></example>
+
+       <my-nav></my-nav>
+   </div>
+   <script src="/js/app.js"></script>
 </body>
 </html>
