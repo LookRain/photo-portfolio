@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
 	return view('home');
@@ -17,4 +18,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/backend', 'HomeController@index')->name('home');
+Route::get('/backend', 'HomeController@index');
+Route::get('/out', 'HomeController@out');
+
+Route::post('/photos', 'PhotoController@store');

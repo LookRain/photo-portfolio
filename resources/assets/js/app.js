@@ -15,13 +15,20 @@
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- Vue.component('example', require('./components/Example.vue'));
  import MyNav from './components/MyNav.vue'
+ import UploadForm from './components/UploadForm.vue'
 
- const app = new Vue({
- 	el: '#app',
- 	components: { MyNav },
+ const back = new Vue({
+ 	el: '#back',
+ 	components: { MyNav, UploadForm  },
  	mounted() {
- 		console.log('vue mounted')
+ 		console.log('back mounted')
+ 	}
+ });
+ const front = new Vue({
+ 	el: '#front',
+ 	components: { },
+ 	mounted() {
+ 		console.log('front mounted')
  	}
  });
