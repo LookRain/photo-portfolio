@@ -10,6 +10,7 @@
         <input type="file" name="photo"></input>
         <button class="button" type="submit">Save</button>
       </form>
+      <img src="{{ Storage::url('images/mNRxgahVHDaXaiqBmpsV8pyFVeLoowM1QHH24Ldj.jpeg') }}" alt="">
     </div>
   </section>
   
