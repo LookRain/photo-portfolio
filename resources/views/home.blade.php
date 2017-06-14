@@ -4,6 +4,7 @@
 <style>
 	#fixed-footer
 	{
+		background-color: grey;
 		position:fixed;
 		bottom:0px;
 		left:0px;
@@ -60,8 +61,8 @@
 
 		</div>
 	</section>
-	<div class="box" id="fixed-footer">
-
+	<div id="fixed-footer">
+		{{-- <img src="http://photo_portfolio.dev/storage/images/portrait/Mu4gUCrCHqSr6eHorC2HQ7GoTEEawNgIYxYMuugC.png" alt="" style="max-height: 100%;"> --}}
 		<my-slider></my-slider>
 	</div>
 </div>

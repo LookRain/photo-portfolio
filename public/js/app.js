@@ -18221,26 +18221,27 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticStyle: {
+      "height": "100%",
       "overflow": "hidden"
     }
   }, [_c('swiper', {
     staticStyle: {
-      "max-height": "30%",
+      "height": "100%",
       "overflow": "hidden"
     },
     attrs: {
       "options": _vm.swiperOption
     }
-  }, [_vm._l((_vm.pics), function(pic) {
+  }, _vm._l((_vm.pics), function(pic) {
     return _c('swiper-slide', {
       key: pic,
       staticStyle: {
-        "max-height": "30%",
+        "height": "100%",
         "overflow": "hidden"
       }
     }, [_c('img', {
       staticStyle: {
-        "max-height": "30%",
+        "max-height": "100%",
         "overflow": "hidden"
       },
       attrs: {
@@ -18248,10 +18249,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "alt": ""
       }
     })])
-  }), _vm._v(" "), _c('div', {
-    staticClass: "swiper-pagination",
-    slot: "pagination"
-  })], 2)], 1)
+  }))], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

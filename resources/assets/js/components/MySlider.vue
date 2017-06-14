@@ -1,13 +1,13 @@
 <template>
-  <div style="overflow: hidden;">
+  <div style="height: 100%; overflow: hidden;">
 
     <!-- swiper -->
 
-    <swiper :options="swiperOption" style="max-height: 30%; overflow: hidden;">
+    <swiper :options="swiperOption" style="height: 100%; overflow: hidden;">
 
-      <swiper-slide v-for="pic in pics" :key="pic" style="max-height: 30%; overflow: hidden"><img :src="pic" alt="" style="max-height: 30%; overflow: hidden"></swiper-slide>
+      <swiper-slide v-for="pic in pics" :key="pic" style="height: 100%; overflow: hidden"><img :src="pic" alt="" style="max-height: 100%; overflow: hidden"></swiper-slide>
 
-      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
     </swiper>
   </div>
 
