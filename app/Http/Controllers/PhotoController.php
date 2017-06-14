@@ -11,6 +11,6 @@ class PhotoController extends Controller
 	function store(Request $request) {
 		// dd($request);
 		$path = $request->file('photo')->store('public/images');
-		return response(Storage::url($path));
+		return view('dashboard', ['path' => $path]);
 	}
 }
