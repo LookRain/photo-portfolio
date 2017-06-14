@@ -7,27 +7,29 @@
 
  require('./bootstrap');
 
- window.Vue = require('vue');
+ import Vue from 'vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+ import VueAwesomeSwiper from 'vue-awesome-swiper'
+ Vue.use(VueAwesomeSwiper)
 
  import MyNav from './components/MyNav.vue'
  import UploadForm from './components/UploadForm.vue'
-
+ import MySlider from './components/MySlider.vue'
  const back = new Vue({
  	el: '#back',
- 	components: { MyNav, UploadForm  },
+ 	components: { MyNav, UploadForm, MySlider  },
  	mounted() {
  		console.log('back mounted')
  	}
  });
  const front = new Vue({
  	el: '#front',
- 	components: { },
+ 	components: { MyNav, MySlider },
  	mounted() {
  		console.log('front mounted')
  	}

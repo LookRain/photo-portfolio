@@ -34,6 +34,7 @@
         </div>
         @endif
       </form>
+
       @if (! empty($path))
       <img src="{{ Storage::url($path) }}" alt="">
       @endif
