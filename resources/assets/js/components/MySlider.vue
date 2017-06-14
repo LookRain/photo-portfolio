@@ -1,30 +1,26 @@
 <template>
-  <div class="box">
+  <div style="overflow: hidden;">
 
-    <div class="box">
-      <!-- swiper -->
-      <swiper :options="swiperOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-    </div>
+    <!-- swiper -->
+
+    <swiper :options="swiperOption" style="max-height: 30%; overflow: hidden;">
+
+      <swiper-slide v-for="pic in pics" :key="pic" style="max-height: 30%; overflow: hidden"><img :src="pic" alt="" style="max-height: 30%; overflow: hidden"></swiper-slide>
+
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
   </div>
+
 </template>
 
 <script>
   export default {
     name: 'MySlider',
+    props: ['category'],
     data() {
       return {
+        msg: '123',
+        pics: [],
         swiperOption: {
           pagination: '.swiper-pagination',
           slidesPerView: 4,
@@ -34,6 +30,13 @@
           grabCursor: true
         }
       }
+    },
+    created() {
+      // if (this.category == 'portrait') {
+
+      // }
+
+      axios.get('/getAll/portrait').then((response)=>{this.pics = response.data})
     }
   }
 </script>

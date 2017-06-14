@@ -8,7 +8,7 @@
 		bottom:0px;
 		left:0px;
 		right:0px;
-		height:250px;
+		height:30%;
 		margin-bottom:0px;
 	}
 </style>

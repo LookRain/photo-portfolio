@@ -21,4 +21,6 @@ Auth::routes();
 Route::get('/backend', 'HomeController@index');
 Route::get('/out', 'HomeController@out');
 
+
+Route::get('/getAll/{cat}', 'PhotoController@getAll');
 Route::post('/photos', 'PhotoController@store');

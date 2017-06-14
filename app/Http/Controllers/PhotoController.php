@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class PhotoController extends Controller
 {
     //
-	function store(Request $request) {
+	public function store(Request $request) {
 		// dd($request);
 		$this->validate($request, [
 			'cat' => 'required',
@@ -28,5 +28,25 @@ class PhotoController extends Controller
 		}
 		
 		return view('dashboard', ['path' => $path]);
+	}
+
+	public function getAll(Request $request, $cat) {
+		// dd($cat);
+		if ($cat == 'portrait') {
+			$pics = Storage::files('public/images/portrait');
+			// dd($pics);
+			$result = [];
+			foreach ($pics as $pic) {
+				array_push($result, Storage::url($pic));
+			}
+			// dd($result);
+			return $result;
+		}
+		if ($cat == 'landscape') {
+			dd(Storage::files('public/images/landscape'));
+		}
+		if ($cat == 'street') {
+			dd(Storage::files('public/images/street'));
+		}
 	}
 }
