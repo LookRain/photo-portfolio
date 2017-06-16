@@ -5,7 +5,7 @@
 
     <swiper :options="swiperOption" style="height: 100%; overflow: hidden;">
 
-      <swiper-slide v-for="pic in pics" :key="pic" style="height: 100%; overflow: hidden"><img :src="pic" alt="" style="max-height: 100%; overflow: hidden"></swiper-slide>
+      <swiper-slide id="show-card" v-for="pic in pics" :key="pic"><img :src="pic" alt="" style="min-height: 100%; max-height: 100%; width: auto; max-width: 100%; overflow: hidden; border:solid; background-color: red;"></swiper-slide>
 
       <!-- <div class="swiper-pagination" slot="pagination"></div> -->
     </swiper>
@@ -23,10 +23,9 @@
         pics: [],
         swiperOption: {
           pagination: '.swiper-pagination',
-          slidesPerView: 4,
-          centeredSlides: true,
+          slidesPerView: 'auto',
           paginationClickable: true,
-          spaceBetween: 30,
+          spaceBetween: 0,
           grabCursor: true
         }
       }
@@ -43,12 +42,13 @@
 
 <style scoped>
   .swiper-slide {
-    width: 60%;
+    width: 80%;
   }
   .swiper-slide:nth-child(2n) {
-    width: 40%;
+    width: 60%;
   }
   .swiper-slide:nth-child(3n) {
-    width: 20%;
+    width: 40%;
   }
+
 </style>

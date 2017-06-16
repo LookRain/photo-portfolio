@@ -5,6 +5,7 @@
   <section class="section">
     <div class="container">
       {{-- <upload-form></upload-form> --}}
+      {{Auth::user()->id}}
       <form class="field" method="POST" action="/photos" enctype="multipart/form-data" name="file">
         {{ csrf_field() }}
 
