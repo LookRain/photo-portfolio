@@ -9,7 +9,7 @@
 		bottom:0px;
 		left:0px;
 		right:0px;
-		height:30%;
+		height:100%;
 		margin-bottom:0px;
 	}
 </style>
