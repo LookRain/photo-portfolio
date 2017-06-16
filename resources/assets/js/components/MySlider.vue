@@ -5,7 +5,7 @@
 
     <swiper :options="swiperOption" style="height: 100%; overflow: hidden;">
 
-      <swiper-slide id="show-card" v-for="pic in pics" :key="pic"><img :src="pic" alt="" style="min-height: 100%; max-height: 100%; width: auto; max-width: 100%; overflow: hidden; border:solid; background-color: red;"></swiper-slide>
+      <swiper-slide id="show-card" v-for="pic in pics" :key="pic" style="overflow: hidden;  width: 300px;"><img :src="pic" alt="" style="max-height: 100%; width: 100%;"></swiper-slide>
 
       <!-- <div class="swiper-pagination" slot="pagination"></div> -->
     </swiper>
