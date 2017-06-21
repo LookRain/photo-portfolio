@@ -4,6 +4,7 @@ import MyNav from './components/MyNav.vue'
 import UploadForm from './components/UploadForm.vue'
 import MySlider from './components/MySlider.vue'
 import ImageSlider from './components/ImageSlider.vue'
+import Front from './components/Front.vue'
 
 const back = new Vue({
 	el: '#back',
@@ -14,7 +15,7 @@ const back = new Vue({
 });
 const front = new Vue({
 	el: '#front',
-	components: { MyNav, MySlider },
+	components: { MyNav, MySlider, ImageSlider, Front },
 	mounted() {
 		console.log('front mounted')
 	}

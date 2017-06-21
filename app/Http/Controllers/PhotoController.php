@@ -32,21 +32,15 @@ class PhotoController extends Controller
 
 	public function getAll(Request $request, $cat) {
 		// dd($cat);
-		if ($cat == 'portrait') {
-			$pics = Storage::files('public/images/portrait');
+
+		$pics = Storage::files('public/images/'.$cat);
 			// dd($pics);
-			$result = [];
-			foreach ($pics as $pic) {
-				array_push($result, Storage::url($pic));
-			}
+		$result = [];
+		foreach ($pics as $pic) {
+			array_push($result, Storage::url($pic));
+		}
 			// dd($result);
-			return $result;
-		}
-		if ($cat == 'landscape') {
-			dd(Storage::files('public/images/landscape'));
-		}
-		if ($cat == 'street') {
-			dd(Storage::files('public/images/street'));
-		}
+		return $result;
+		
 	}
 }

@@ -9,9 +9,15 @@
 		bottom:0px;
 		left:0px;
 		right:0px;
-		height:100%;
+		height:20%;
 		margin-bottom:0px;
 	}
+	#main {
+		position:fixed;
+		top: 0px;
+		height:75%;
+	}
+
 </style>
 <div id="front">
 	
@@ -36,7 +42,7 @@
 			</a>
 		</div>
 	</nav>
-	<section class="section">
+	<section class="section" id="main">
 		<div class="container">
 			<div class="box">
 				<h1 class="title">Portrait</h1>
@@ -63,7 +69,7 @@
 	</section>
 	<div id="fixed-footer">
 		{{-- <img src="http://photo_portfolio.dev/storage/images/portrait/Mu4gUCrCHqSr6eHorC2HQ7GoTEEawNgIYxYMuugC.png" alt="" style="max-height: 100%;"> --}}
-		<my-slider></my-slider>
+		<front></front>
 		{{-- <image-slider></image-slider> --}}
 	</div>
 </div>

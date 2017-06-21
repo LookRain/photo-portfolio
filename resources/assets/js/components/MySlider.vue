@@ -2,22 +2,25 @@
   <div style="height: 100%; overflow: hidden;">
 
     <!-- swiper -->
+    <button @click="reInit">reload</button>
 
     <slick ref="slick" :options="slickOptions" style="height: 100%;">
 
 
-      <div style="max-height: 30vh; min-height: 30vh; border: solid; overflow: hidden;">
-        <img style="max-height: 30vh; min-height: 30vh;" src="http://placehold.it/800x400" alt="">
+      
+       
+     
+      <div v-for="pic in pics" :key="pic" style="max-height: 20vh; min-height: 20vh;">
+      
+        <img style="max-height: 20vh; min-height: 20vh;" :src="pic" alt="">
+
       </div>
-      <div style="max-height: 30vh; min-height: 30vh; border: solid; overflow: hidden;">
-        <img style="max-height: 30vh; min-height: 30vh;" src="http://placehold.it/400x400" alt="">
-      </div>
-      <div style="max-height: 30vh; min-height: 30vh; border: solid; overflow: hidden;">
-        <img style="max-height: 30vh; min-height: 30vh;" src="http://placehold.it/400x800" alt="">
-      </div>
-      <div style="max-height: 30vh; min-height: 30vh; border: solid; overflow: hidden;">
-        <img style="max-height: 30vh; min-height: 30vh;" src="http://placehold.it/300x200" alt="">
-      </div>
+     <!--  <div v-for="pic in pics" :key="pic" style="max-height: 20vh; min-height: 20vh;">
+      
+        <img style="max-height: 20vh; min-height: 20vh;" src="http://photo_portfolio.dev/storage/images/portrait/DM65UUNtKws6zEPBpPG32JLyLfArEZUcSgG2Lm0a.jpeg" alt="">
+
+      </div> -->
+     
 
     </slick>
   </div>
@@ -30,24 +33,20 @@
   export default {
     name: 'MySlider',
     components: { Slick },
-    props: ['category'],
+    // props: ['pics'],
     data() {
       return {
         slickOptions: {
           slidesToShow: 3,
           variableWidth: true,
           arrows: false,
-          mobileFirst: true
+          mobileFirst: true,
+          infinite: false
           // Any other options that can be got from plugin documentation
         },
         msg: '123',
         pics: [],
-        swiperOption: {
-          pagination: '.swiper-pagination',
-          slidesPerView: 'auto',
-          paginationClickable: true,
-          spaceBetween: 30
-        }
+        // pics2: [1,2,3,4,5,6,7]
       }
     },
     methods: {
@@ -62,14 +61,15 @@
       reInit() {
             // Helpful if you have to deal with v-for to update dynamic lists
             this.$refs.slick.reSlick();
+            console.log('reinitializing')
           },
         },
-        created() {
-      // if (this.category == 'portrait') {
-
-      // }
-
-      axios.get('/getAll/portrait').then((response)=>{this.pics = response.data})
+    created() {
+      axios.get('/getAll/street').then((response)=>{this.pics = response.data})
+      // this.reInit
+    },
+    updated() {
+     this.reInit()
     }
   }
 </script>
