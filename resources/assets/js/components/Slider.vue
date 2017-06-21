@@ -1,11 +1,14 @@
 <template>
-<my-slider></my-slider>
+<my-slider cat=""></my-slider>
+
 </template>
 <script>
-import MySlider from './MySlider'
+import MySlider from './MySlider.vue'
+
 export default {
-  name: 'Front',
+  name: 'Slider',
   components: { MySlider },
+  props: [ 'cat' ],
   data () {
     return {
     }

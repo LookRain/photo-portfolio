@@ -1,27 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-<style>
-	#fixed-footer
-	{
-		background-color: grey;
-		position:fixed;
-		bottom:0px;
-		left:0px;
-		right:0px;
-		height:20%;
-		margin-bottom:0px;
-	}
-	#main {
-		position:fixed;
-		top: 0px;
-		height:75%;
-	}
 
-</style>
 <div id="front">
 	
-	<nav class="nav">
+	<nav class="nav" id="nav">
 		<div class="nav-left">
 			<a class="nav-item">
 				LookRain Photography
@@ -31,46 +14,18 @@
 		<span class="nav-toggle">
 		</span>
 		<div class="nav-right nav-menu is-active">
-			<a class="nav-item">
+			<router-link to='/show/portrait' class="nav-item">
 				Portrait
-			</a>
-			<a class="nav-item">
+			</router-link>
+			<router-link to='/show/landscape' class="nav-item">
 				Landscape
-			</a>
-			<a class="nav-item">
+			</router-link>
+			<router-link to='/show/street' class="nav-item">
 				Street
-			</a>
+			</router-link>
 		</div>
 	</nav>
-	<section class="section" id="main">
-		<div class="container">
-			<div class="box">
-				<h1 class="title">Portrait</h1>
-				@foreach(Storage::files('public/images/portrait') as $link)
-				<img src="{{ Storage::url($link) }}" alt="" style=" max-height: 100%; max-width: 100%;">
-				@endforeach
-			</div>
+	<router-view :key="$route.params.cat"></router-view>
 
-			<div class="box">
-				<h1 class="title">Landscape</h1>
-				@foreach(Storage::files('public/images/landscape') as $link)
-				<img src="{{ Storage::url($link) }}" alt="" style=" max-height: 100%; max-width: 100%;">
-				@endforeach
-			</div>
-
-			<div class="box">
-				<h1 class="title">Street</h1>
-				@foreach(Storage::files('public/images/street') as $link)
-				<img src="{{ Storage::url($link) }}" alt="" style=" max-height: 100%; max-width: 100%;">
-				@endforeach
-			</div>
-
-		</div>
-	</section>
-	<div id="fixed-footer">
-		{{-- <img src="http://photo_portfolio.dev/storage/images/portrait/Mu4gUCrCHqSr6eHorC2HQ7GoTEEawNgIYxYMuugC.png" alt="" style="max-height: 100%;"> --}}
-		<front></front>
-		{{-- <image-slider></image-slider> --}}
-	</div>
 </div>
 @endsection

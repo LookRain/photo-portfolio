@@ -1,14 +1,12 @@
 <template>
   <div style="height: 100%; overflow: hidden;">
-    <slick ref="slick" :options="slickOptions" style="height: 100%;">
+  <button @click="del">re</button>
+    <slick ref="slick" :options="slickOptions" :key="hist" style="height: 100%;">
 
 
-      
-       
-     
       <div v-for="pic in pics" :key="pic" style="max-height: 20vh; min-height: 20vh;">
       
-        <img style="max-height: 20vh; min-height: 20vh;" :src="pic" alt="">
+        <img :key="pic" style="max-height: 20vh; min-height: 20vh;" :src="pic" alt="">
 
       </div>
 
@@ -23,9 +21,10 @@
   export default {
     name: 'MySlider',
     components: { Slick },
-    // props: ['pics'],
+    props: ['cat'],
     data() {
       return {
+        hist: 0,
         slickOptions: {
           slidesToShow: 3,
           variableWidth: true,
@@ -49,17 +48,34 @@
       },
 
       reInit() {
-            // Helpful if you have to deal with v-for to update dynamic lists
+      // Helpful if you have to deal with v-for to update dynamic lists
             this.$refs.slick.reSlick();
             console.log('reinitializing')
           },
+      del() {
+        this.hist ++
+        this.pics.pop()
+        console.log(document.querySelectorAll('.slick-slide'))
+        this.reInit()
+      }
+
         },
     created() {
-      axios.get('/getAll/street').then((response)=>{this.pics = response.data})
+      axios.get('/getAll/' + this.cat).then((response)=>{this.pics = response.data})
       // this.reInit
     },
     updated() {
-     this.reInit()
+      console.log('updated')
+      this.reInit()
+    },
+    watch: {
+      cat (val) {
+        let temp = []
+        // axios.get('/getAll/' + this.cat).then((response)=>{temp = response.data})
+        this.pics.pop()
+        this.reInit()
+        // this.pics.push('https://vuejs.org/images/logo.png')
+      }
     }
   }
 </script>

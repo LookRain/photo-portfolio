@@ -2,9 +2,13 @@ import './bootstrap';
 
 import MyNav from './components/MyNav.vue'
 import UploadForm from './components/UploadForm.vue'
-import MySlider from './components/MySlider.vue'
-import ImageSlider from './components/ImageSlider.vue'
-import Front from './components/Front.vue'
+
+
+import Display from './components/Display.vue'
+import Slider from './components/Slider.vue'
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
 
 const back = new Vue({
 	el: '#back',
@@ -13,10 +17,27 @@ const back = new Vue({
 		console.log('back mounted')
 	}
 });
+
+const routes = [
+	{ path: '/show/:cat', 
+		// components: {
+		// 	default: Display,
+		// 	a: Slider
+		// },
+		component: Display,
+		props: true 
+	}
+]
+
+const router = new VueRouter({
+  routes
+})
 const front = new Vue({
 	el: '#front',
-	components: { MyNav, MySlider, ImageSlider, Front },
+	router,
+	components: { MyNav, Display },
 	mounted() {
 		console.log('front mounted')
 	}
 });
+
