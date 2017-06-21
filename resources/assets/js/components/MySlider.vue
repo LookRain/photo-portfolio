@@ -1,9 +1,5 @@
 <template>
   <div style="height: 100%; overflow: hidden;">
-
-    <!-- swiper -->
-    <button @click="reInit">reload</button>
-
     <slick ref="slick" :options="slickOptions" style="height: 100%;">
 
 
@@ -15,12 +11,6 @@
         <img style="max-height: 20vh; min-height: 20vh;" :src="pic" alt="">
 
       </div>
-     <!--  <div v-for="pic in pics" :key="pic" style="max-height: 20vh; min-height: 20vh;">
-      
-        <img style="max-height: 20vh; min-height: 20vh;" src="http://photo_portfolio.dev/storage/images/portrait/DM65UUNtKws6zEPBpPG32JLyLfArEZUcSgG2Lm0a.jpeg" alt="">
-
-      </div> -->
-     
 
     </slick>
   </div>

@@ -27851,16 +27851,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -31638,11 +31628,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "height": "100%",
       "overflow": "hidden"
     }
-  }, [_c('button', {
-    on: {
-      "click": _vm.reInit
-    }
-  }, [_vm._v("reload")]), _vm._v(" "), _c('slick', {
+  }, [_c('slick', {
     ref: "slick",
     staticStyle: {
       "height": "100%"
