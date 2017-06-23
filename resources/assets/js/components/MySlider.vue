@@ -1,11 +1,11 @@
 <template>
   <div style="height: 100%; overflow: hidden;">
-  <button @click="del">re</button>
-    <slick ref="slick" :options="slickOptions" :key="hist" style="height: 100%;">
+
+  <slick class="slider-nav" ref="slick" :options="slickOptions" style="height: 100%;">
 
 
       <div v-for="pic in pics" :key="pic" style="max-height: 20vh; min-height: 20vh;">
-      
+
         <img :key="pic" style="max-height: 20vh; min-height: 20vh;" :src="pic" alt="">
 
       </div>
@@ -24,13 +24,41 @@
     props: ['cat'],
     data() {
       return {
-        hist: 0,
-        slickOptions: {
-          slidesToShow: 3,
-          variableWidth: true,
-          arrows: false,
-          mobileFirst: true,
-          infinite: false
+       slickOptions: {
+        slidesToShow: 5,
+        slidesToScroll: 3,
+        variableWidth: true,
+        centerMode: true,
+        centerPadding: '60px',
+        arrows: false,
+        speed: 300,
+        infinite: false,
+        focusOnSelect: true,
+        responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        ]
           // Any other options that can be got from plugin documentation
         },
         msg: '123',
@@ -49,19 +77,12 @@
 
       reInit() {
       // Helpful if you have to deal with v-for to update dynamic lists
-            this.$refs.slick.reSlick();
-            console.log('reinitializing')
-          },
-      del() {
-        this.hist ++
-        this.pics.pop()
-        console.log(document.querySelectorAll('.slick-slide'))
-        this.reInit()
-      }
-
-        },
-    created() {
-      axios.get('/getAll/' + this.cat).then((response)=>{this.pics = response.data})
+      this.$refs.slick.reSlick();
+      console.log('reinitializing')
+    }
+  },
+  created() {
+    axios.get('/getAll/' + this.cat).then((response)=>{this.pics = response.data})
       // this.reInit
     },
     updated() {
